@@ -11,47 +11,32 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>ニュース新規作成</h2>
+                <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
+
+                
             </div>
         </div>
     </div>
 @endsection
 
 <!DOCTYPE html>
-@if (count($errors) > 0)
-                        <ul>
-                            @foreach($errors->all() as $e)
-                                <li>{{ $e }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-                    <div class="form-group row">
-                        <label class="col-md-2">名前</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2">性別</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="gender" value="{{ old('gender') }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2">趣味</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="hobby" value="{{ old('hobby') }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2">自己紹介欄</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="introduction" value="{{ old('introduction') }}">
-                        </div>
-                    </div>
-                    {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="更新">
-                </form>
-            </div>
-        </div>
-    </div>
-@endsection
+
+<html>
+    <head></head>
+    <body>
+        <form action = "./confirm"method = "POST">
+            @csrf
+            <p>プロフィール画面</p>
+            <p><label for="namae">名前：</label><input type="text" name="name" id="namae" size="40"></p>
+        　　<fieldset disabled="disabled">
+<legend>性別</legend>
+<p><label for="dansei">男性</label><input type="radio" name="sex" id="dansei" value="male"></p>
+<p><label for="jyosei">女性</label><input type="radio" name="sex" id="jyosei" value="female"></p>
+</fieldset>
+            <p><label for = "hobby">趣味：</label><input type="text" value=""/ size = "60"></label></p>
+            
+            <p>自己紹介欄:<input type = "text"name = "introduction"value = ""/></p>
+            
+        </form>
+    </body>
+</html>

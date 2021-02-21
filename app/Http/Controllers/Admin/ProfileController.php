@@ -10,14 +10,15 @@ class ProfileController extends Controller
   //課題４//
 
 
- public function add()
+public function add()
   {
       return view('admin.profile.create');
   }
-  
-  public function edit()
+
+  // 以下を追記
+  public function create(Request $request)
   {
-      return view('admin.profile.edit');
-  }
-    
+      // admin/profile/createにリダイレクトする
+      return redirect('admin/profile/create');
+  }  
 }
