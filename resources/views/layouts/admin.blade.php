@@ -46,20 +46,9 @@
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            {{-- ここまでナビゲーションバー --}}
-
-            <main class="py-4">
-                {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
-                @yield('content')
-            </main>
-        </div>
-    </body>
-</html>
-<!-- Authentication Links -->
+                            
+                            
+                            <!-- Authentication Links -->
                         {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
@@ -84,3 +73,16 @@
                             </li>
                             @endguest
                             
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            {{-- ここまでナビゲーションバー --}}
+
+            <main class="py-4">
+                {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
+                @yield('content')
+            </main>
+        </div>
+    </body>
+</html>
