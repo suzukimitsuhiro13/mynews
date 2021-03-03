@@ -9,10 +9,26 @@ use App\News;
 
 class NewsController extends Controller
 {
+  // 以下を追記
+  public function index(Request $request)
+  {
+      $cond_title = $request->cond_title;
+      if ($cond_title != '') {
+          // 検索されたら検索結果を取得する
+          $posts = News::where('title', $cond_title)->get();
+      } else {
+          // それ以外はすべてのニュースを取得する
+          $posts = News::all();
+      }
+      return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+  }
+
+
   public function add()
   {
       return view('admin.news.create');
   }
+  
 
   public function create(Request $request)
   {
@@ -31,6 +47,8 @@ class NewsController extends Controller
       } else {
           $news->image_path = null;
       }
+      
+      
 
       // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);
@@ -42,5 +60,8 @@ class NewsController extends Controller
       $news->save();
 
       return redirect('admin/news/create');
+      
+      
   }
 }
+
